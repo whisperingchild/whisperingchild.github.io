@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang=en>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="QuestionRecently, I’ve heard an algorithm question from a colleague:  Given two arrays $a$ and $b$ with same length $n$, find index $i$ and $j$ $(i &amp;lt; j)$ that, after replacing $a[i],a[i+1],…,a[j-1]">
+<meta name="keywords" content="Interview,Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Maximum Array Sum After Switching Consecutive Elements">
+<meta property="og:url" content="https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html">
+<meta property="og:site_name" content="Whispering Child">
+<meta property="og:description" content="QuestionRecently, I’ve heard an algorithm question from a colleague:  Given two arrays $a$ and $b$ with same length $n$, find index $i$ and $j$ $(i &amp;lt; j)$ that, after replacing $a[i],a[i+1],…,a[j-1]">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-01-05T13:56:06.671Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Maximum Array Sum After Switching Consecutive Elements">
+<meta name="twitter:description" content="QuestionRecently, I’ve heard an algorithm question from a colleague:  Given two arrays $a$ and $b$ with same length $n$, find index $i$ and $j$ $(i &amp;lt; j)$ that, after replacing $a[i],a[i+1],…,a[j-1]">
+    
+    
+        
+          
+              <link rel="shortcut icon" href="/images/favicon.ico">
+          
+        
+        
+          
+            <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+          
+        
+        
+          
+            <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+          
+        
+    
+    <!-- title -->
+    <title>Maximum Array Sum After Switching Consecutive Elements</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- persian styles -->
+    
+      <link rel="stylesheet" href="/css/rtl.css">
+    
+    <!-- rss -->
+    
+    
+</head>
+
+<body class="max-width mx-auto px3 ltr">    
+      <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Posts</a></li>
+         
+          <li><a href="/categories/Karaoke/">Karaoke</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+        
+      </ul>
+    </span>
+    <br>
+    <span id="actions">
+      <ul>
+        
+        
+        <li><a class="icon" href="/2019/01/2019-01-02-爱情电影.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
+        
+        <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br>
+    <div id="share" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html"><i class="fab fa-facebook " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&text=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-twitter " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&title=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-linkedin " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&is_video=false&description=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-pinterest " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Maximum Array Sum After Switching Consecutive Elements&body=Check out this article: https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html"><i class="fas fa-envelope " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&title=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-get-pocket " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&title=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-reddit " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&title=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-stumbleupon " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&title=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-digg " aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&name=Maximum Array Sum After Switching Consecutive Elements&description="><i class="fab fa-tumblr " aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Question"><span class="toc-number">1.</span> <span class="toc-text">Question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Brute-Force"><span class="toc-number">2.</span> <span class="toc-text">Brute Force</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dynamic-Programming-for-Sum"><span class="toc-number">3.</span> <span class="toc-text">Dynamic Programming for Sum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“Best-Time-to-Buy-and-Sell-Stock”"><span class="toc-number">4.</span> <span class="toc-text">“Best Time to Buy and Sell Stock”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PS"><span class="toc-number">5.</span> <span class="toc-text">PS</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+    
+    <div class="content index py4">
+        
+        <article class="post" itemscope="" itemtype="http://schema.org/BlogPosting">
+  <header>
+    
+    <h1 class="posttitle" itemprop="name headline">
+        Maximum Array Sum After Switching Consecutive Elements
+    </h1>
+
+
+
+    <div class="meta">
+      <span class="author" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+        <span itemprop="name">Whispering Child</span>
+      </span>
+      
+    <div class="postdate">
+      
+        <time datetime="2019-01-05T10:00:00.000Z" itemprop="datePublished">2019-01-05</time>
+        
+      
+    </div>
+
+
+      
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Tech/">Tech</a>
+    </div>
+
+
+      
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Algorithm/">Algorithm</a>, <a class="tag-link" href="/tags/Interview/">Interview</a>
+    </div>
+
+
+    </div>
+  </header>
+  
+
+  <div class="content" itemprop="articleBody">
+    <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Recently, I’ve heard an algorithm question from a colleague:</p>
+<blockquote>
+<p>Given two arrays $a$ and $b$ with same length $n$, find index $i$ and $j$ $(i &lt; j)$ that, after replacing $a[i],a[i+1],…,a[j-1]$ with $b[i],b[i+1],…,b[j-1]$, the sum of $a$ is maximum.</p>
+</blockquote>
+<p>My first instinct: this is so dynamic programming. However, let’s try brute force first.</p>
+<h2 id="Brute-Force"><a href="#Brute-Force" class="headerlink" title="Brute Force"></a>Brute Force</h2><p>For every pair of $(i,j)$, calculating the sum of replaced $a$ costs $o(n)$. And there are $o(n^2)$ pairs of $(i,j)$, so the total time complexity for Brute-force method is $o(n^3)$ with space $o(1)$. I am not going to write down the code. ^_*</p>
+<p>Well, if we can use some extra space, we can save sometime to calculate the sum. Here comes the second solution:</p>
+<h2 id="Dynamic-Programming-for-Sum"><a href="#Dynamic-Programming-for-Sum" class="headerlink" title="Dynamic Programming for Sum"></a>Dynamic Programming for Sum</h2><p>Let’s denote $A_0=B_0=0,\;A_i=\displaystyle\sum_{j=0}^{i-1} a[j], \;B_i=\displaystyle\sum_{j=0}^{i-1} b[j]$ and $S_{ij}$ is the sum after switching elements between index $i$ and $j$.</p>
+<p>It is easy to see that $S_{ij}=A_n-A_j+B_j-B_i+A_i$, so if we store all $A_i$ and $B_i$ that calculating the $S_{ij}$ just needs $o(1)$ time. Of course, calculating all $A_i$ and $B_i$ needs $o(n)$ time, but it only needs to be calcaluted once.</p>
+<p>So here is C# code:<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">MaximumSumCalculator</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">MaximumSumAfterSwitchingElements</span>(<span class="params"><span class="keyword">int</span>[] a, <span class="keyword">int</span>[] b</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">int</span>[] aa = <span class="keyword">new</span> <span class="keyword">int</span>[a.Length + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">int</span>[] bb = <span class="keyword">new</span> <span class="keyword">int</span>[a.Length + <span class="number">1</span>];</span><br><span class="line">        aa[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">        bb[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.Length; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            aa[i+<span class="number">1</span>] = aa[i] + a[i];</span><br><span class="line">            bb[i+<span class="number">1</span>] = bb[i] + b[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> maxSum = aa[a.Length];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= a.Length; ++j)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; j; ++i)</span><br><span class="line">            &#123;</span><br><span class="line">                maxSum = Math.Max(maxSum, aa[a.Length] - aa[j] + bb[j] - bb[i] + aa[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> maxSum;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Now by storing the sums, time cost reduces to $o(n^2+n)=o(n^2)$.</p>
+<p>Can we further reduce the time cost? Of course we can! Let’s reorganize $S_{ij}$:</p>
+<script type="math/tex; mode=display">
+Let\;C_i=B_i-A_i, so\\
+S_{ij}=A_n-A_j+B_j-B_i+A_i=A_n+C_j-C_i\\
+max(S_{ij})=A_n+max(C_j-C_i),\;i<j</script><p>So if we construct a new array $C$, what we want is find $i$ and $j$ to make $C[j]-C[i]$ maximum with only one constraint: $i&lt;j$. Does it ring a bell now? Hmm, if it doesn’t, what if $C[i]$ is the stock price on $i$th day, you need to make the max profit out of it with at most one buy and sell? Yes, it is <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" rel="noopener">LeetCode No. 121: Best Time to Buy and Sell Stock</a>. Here comes the third solution:</p>
+<h2 id="“Best-Time-to-Buy-and-Sell-Stock”"><a href="#“Best-Time-to-Buy-and-Sell-Stock”" class="headerlink" title="“Best Time to Buy and Sell Stock”"></a>“Best Time to Buy and Sell Stock”</h2><p>If we sell stock at $i$th day, the max profit we can make is $Profit[i]=Stock[i]-S_{min}[i]$, $S_{min}[i]$ is the least price in the first $i$ days. What we need is $max(Profit[i])$.<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="title">MaximumSumCalculator</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">MaximumSumAfterSwitchingElements</span>(<span class="params"><span class="keyword">int</span>[] a, <span class="keyword">int</span>[] b</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">int</span> sum = a[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> maxProfit = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> stockPrice = b[<span class="number">0</span>] - a[<span class="number">0</span>];</span><br><span class="line">        <span class="keyword">int</span> minPrice = stockPrice;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; a.Length; ++i)</span><br><span class="line">        &#123;</span><br><span class="line">            stockPrice += (b[i] - a[i]);</span><br><span class="line">            minPrice = Math.Min(stockPrice, minPrice);</span><br><span class="line">            maxProfit = Math.Max(maxProfit, stockPrice - minPrice);</span><br><span class="line">            sum += a[i];</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> sum + maxProfit;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Now we only need $o(n)$ time to make the max profit out of it!</p>
+<p>I guess my colleague cannot ask interviewee of this question any more.</p>
+<h2 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h2><p>It took me some time to make the math equation display right. Thanks to <a href="https://thea-r.github.io" target="_blank" rel="noopener">然而，然而</a> and his post <a href="https://thea-r.github.io/2018/07/01/%E5%A6%82%E4%BD%95%E5%9C%A8Hexo%E4%B8%AD%E6%B8%B2%E6%9F%93%E5%85%AC%E5%BC%8F/" target="_blank" rel="noopener">如何在Hexo中渲染公式</a>.</p>
+
+  </div>
+</article>
+
+
+
+        
+          <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Posts</a></li>
+         
+          <li><a href="/categories/Karaoke/">Karaoke</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Question"><span class="toc-number">1.</span> <span class="toc-text">Question</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Brute-Force"><span class="toc-number">2.</span> <span class="toc-text">Brute Force</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dynamic-Programming-for-Sum"><span class="toc-number">3.</span> <span class="toc-text">Dynamic Programming for Sum</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#“Best-Time-to-Buy-and-Sell-Stock”"><span class="toc-number">4.</span> <span class="toc-text">“Best Time to Buy and Sell Stock”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PS"><span class="toc-number">5.</span> <span class="toc-text">PS</span></a></li></ol>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      <ul>
+  <li><a class="icon" href="http://www.facebook.com/sharer.php?u=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html"><i class="fab fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://twitter.com/share?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&text=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.linkedin.com/shareArticle?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&title=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-linkedin fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&is_video=false&description=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-pinterest fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="mailto:?subject=Maximum Array Sum After Switching Consecutive Elements&body=Check out this article: https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html"><i class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="https://getpocket.com/save?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&title=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://reddit.com/submit?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&title=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-reddit fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.stumbleupon.com/submit?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&title=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-stumbleupon fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://digg.com/submit?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&title=Maximum Array Sum After Switching Consecutive Elements"><i class="fab fa-digg fa-lg" aria-hidden="true"></i></a></li>
+  <li><a class="icon" href="http://www.tumblr.com/share/link?url=https://blog.whisperingchild.com/2019/01/2019-01-05-maximum-array-sum-after-switching-consecutive-elements.html&name=Maximum Array Sum After Switching Consecutive Elements&description="><i class="fab fa-tumblr fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+        <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+        
+        <footer id="footer">
+  <div class="footer-left">
+    Copyright &copy; 2019 Whispering Child
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/about/">About</a></li>
+         
+          <li><a href="/archives/">Posts</a></li>
+         
+          <li><a href="/categories/Karaoke/">Karaoke</a></li>
+         
+          <li><a href="/tags/">Tags</a></li>
+         
+          <li><a href="/categories/">Categories</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+    </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!--
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</body>
+</html>
+<!-- styles -->
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+<link rel="stylesheet" href="/lib/justified-gallery/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+<script src="/lib/jquery/jquery.min.js"></script>
+<script src="/lib/justified-gallery/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/main.js"></script>
+<!-- search -->
+
+<!-- Google Analytics -->
+
+<!-- Baidu Analytics -->
+
+<!-- Disqus Comments -->
+
+
