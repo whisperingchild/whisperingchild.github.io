@@ -49,7 +49,8 @@
     
 </head>
 
-<body class="max-width mx-auto px3 ltr">    
+<body class="max-width mx-auto px3 ltr">
+    
       <div id="header-post">
   <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
   <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
@@ -75,6 +76,8 @@
     <br>
     <span id="actions">
       <ul>
+        
+        <li><a class="icon" href="/2020/07/2020-07-01-我们的总和.html"><i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i></a></li>
         
         
         <li><a class="icon" href="/2019/01/2019-01-02-爱情电影.html"><i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i></a></li>
@@ -153,7 +156,7 @@
   
 
   <div class="content" itemprop="articleBody">
-    <h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Recently, I’ve heard an algorithm question from a colleague:</p>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/hint.css/2.4.1/hint.min.css"><h2 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h2><p>Recently, I’ve heard an algorithm question from a colleague:</p>
 <blockquote>
 <p>Given two arrays $a$ and $b$ with same length $n$, find index $i$ and $j$ $(i &lt; j)$ that, after replacing $a[i],a[i+1],…,a[j-1]$ with $b[i],b[i+1],…,b[j-1]$, the sum of $a$ is maximum.</p>
 </blockquote>
@@ -234,7 +237,7 @@ max(S_{ij})=A_n+max(C_j-C_i),\;i<j</script><p>So if we construct a new array $C$
         
         <footer id="footer">
   <div class="footer-left">
-    Copyright &copy; 2019 Whispering Child
+    Copyright &copy; 2020 Whispering Child
   </div>
   <div class="footer-right">
     <nav>
@@ -258,24 +261,6 @@ max(S_{ij})=A_n+max(C_j-C_i),\;i<j</script><p>So if we construct a new array $C$
 </footer>
 
     </div>
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!--
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
--->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 </body>
 </html>
 <!-- styles -->
